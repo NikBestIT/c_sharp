@@ -1,76 +1,39 @@
-﻿
+﻿var cook = new Robot(1050, "Tom", "Повар");
 
+var spy = new RobotSpy(1000, "TomSpy", "Spy");
 
-
-Robot robotTom = new Robot("Tom", "Повар", 1050);
-
-
-Console.WriteLine(robotTom.SerialNumber);
-
-Console.WriteLine(robotTom.RobotName);
-
-robotTom.SetName("Bob");
-
-Console.WriteLine(robotTom.RobotName);
-
-
-public class Robot
-
+var counter = 1;
+void PrintRobots(string message)
 {
-    //вариант 1
-    private string _robotName;
-
-
-    public string RobotName => _robotName;
-
-
-    public void SetName(string name)
-
-
-    {
-        _robotName = name;
-    }
-
-
-
-    //вариант 2
-
-
-    
-
-    //вариант 3
-
-    private string _model;
-
-    public string Model 
-    {
-        get { return Model; }
-        set
-        {
-
-
-            if (Model == "spy")
-            {
-                string[] models = { "1200", "1300", "1400" };
-
-            }
-            else
-            {
-                _model = value;
-            }
-        }
-
-    }
-
-    public Robot(string name, string model, int serialNumber)
-    {
-        _robotName = name;
-        Model = model;
-        SerialNumber = serialNumber;
-    }
-
-
-   
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine($"{counter++}. {message}");
+    Console.ForegroundColor = ConsoleColor.White;
+    Console.WriteLine($"Модель повара: {cook}");
+    Console.WriteLine($"Модель шпиона: {spy}");
+    Console.WriteLine();
 }
 
+PrintRobots("Наши роботы");
 
+// Маскируем шпиона под повара
+spy.Mask(cook);
+
+PrintRobots("Шпион замаскировался под повара");
+
+spy.Unmask();
+
+PrintRobots("Шпион размаскировался");
+
+spy.Mask(cook);
+spy.Unspy(ref cook);
+
+PrintRobots("Убили повара и заменили его клоном");
+
+spy.Unmask();
+
+PrintRobots("Шпион размаскировался");
+
+RobotSpy.SetNextOrderNumber(100);
+var pochtalion = new Robot(100, "Fedya", "Pochtalion");
+
+Console.WriteLine($"Почтальон: {pochtalion}");
