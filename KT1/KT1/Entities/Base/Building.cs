@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace KT1.Entities.Base;
 
-public class Building
+public abstract class Building
 {
     public string Address => _address;
     private string _address;
 
-    public Building(string address)
+    protected Building(string address)
     {
         _address = address.CheckNotNullOrEmptyOrWhiteSpace();
     }
