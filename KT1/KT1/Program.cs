@@ -9,6 +9,8 @@ var library = new Library(
     ]);
 
 var nikita = new Reader("Никита", "Бестфатор", 18);
+Console.WriteLine(nikita);
+
 var vadim = new Reader("Вадим", "Бестфатор", 13);
 var ilya = new Reader("Илья", "Бестфатор", 10);
 
